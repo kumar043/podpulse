@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: podpulse
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app: podpulse
+  template:
+    metadata:
+      labels:
+        app: podpulse
+    spec:
+      containers:
+        - name: podpulse
+          image: kumar9666/podpulse:v1
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 3000
